@@ -25,14 +25,14 @@ public class ScoretrackerApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner Bookstore(CourseRepository crepository) {
+	public CommandLineRunner Scoretracker(CourseRepository crepository,GameRepository grepository) {
 		return (args) -> {
-			log.info("save books");
+			log.info("save courses");
 			
 			
 			crepository.save(new Course("Siltamäki","Helsinki","siltamäentie",18));
 			crepository.save(new Course("Kivikko frisbeegolf","Helsinki","peltotie 19",18));	
-			
+			grepository.save(new Game(20,crepository.findByName("Siltamäki").get(0)));
 			log.info("fetch all courses");
 			for (Course course : crepository.findAll()) {
 				log.info(course.toString());

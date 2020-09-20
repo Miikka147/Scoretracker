@@ -6,15 +6,12 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-	<div th:object="${courses}" >
-    <h1 th:text="*{name}"></h1><h1 th:text="*{city}"></h1>
-</div>
     <table class="table table-striped">
 	
-		<tr th:each = "course : ${courses}">
+		<tr>
+		    <th>Course</th>
+		    <th>Total Score</th>
 		    <th></th>
-		    <th>Total</th>
-		    <th th:text="${course.name}"></th>
 		    <th><a th:href="@{/}">Back</a></th>
 		</tr>  
 		   	<tr th:each = "games : ${games}">

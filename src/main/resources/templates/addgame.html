@@ -1,82 +1,27 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>BookList</title>
+    <title>Course</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>Add new game</h1>
-		<div>
+	<h1>Add Score</h1>
+	
+    
 		<form th:object="${game}" th:action="@{save}" action="#" method="post">
-			<input type="text" th:field="*{id}" class="form-control"/>
-		  	<label for="date">Date(DD.MM.YYYY)</label>
-			<input type="text" id="date" th:field="*{date}" />
-			<br>
+		  	 
+    		
+		  	<label for="score">Score</label>
+			<input type="text" id="score" th:field="*{score}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<label for="one">#1  Hole:</label>
-			<input type="text" id="one" th:field="*{one}"/>
-			<br>
-			<label for="two">#2  Hole:</label>
-			<input type="text" id="two" th:field="*{two}" />
-			<br>
-			<label for="three">#3  Hole:</label>
-			<input type="text" id="three" th:field="*{three}" />
-			<br>
-			<label for="four">#4  Hole:</label>
-			<input type="text" id="two" th:field="*{four}" />
-			<br>
-			<label for="five">#5  Hole:</label>
-			<input type="text" id="five" th:field="*{five}" />
-			<br>
-			<label for="six">#6  Hole:</label>
-			<input type="text" id="six" th:field="*{six}" />
-			<br>
-			<label for="seven">#7  Hole:</label>
-			<input type="text" id="seven" th:field="*{seven}" />
-			<br>
-			<label for="eight">#8  Hole:</label>
-			<input type="text" id="eight" th:field="*{eight}" />
-			<br>
-			<label for="nine">#9  Hole:</label>
-			<input type="text" id="nine" th:field="*{nine}" />
-			<br>
-			<label for="ten">#10 Hole:</label>
-			<input type="text" id="ten" th:field="*{ten}" />
-			<br>
-			<label for="eleven">#11 Hole:</label>
-			<input type="text" id="eleven" th:field="*{eleven}" />
-			<br>
-			<label for="twelve">#12 Hole:</label>
-			<input type="text" id="twelve" th:field="*{twelve}" />
-			<br>
-			<label for="thirteen">#13 Hole:</label>
-			<input type="text" id="thirteen" th:field="*{thirteen}" />
-			<br>
-			<label for="fourteen">#14 Hole:</label>
-			<input type="text" id="fourteen" th:field="*{fourteen}" />
-			<br>
-			<label for="fifteen">#15 Hole:</label>
-			<input type="text" id="fifteen" th:field="*{fifteen}" />
-			<br>
-			<label for="sixteen">#16 Hole:</label>
-			<input type="text" id="sixteen" th:field="*{sixteen}" />
-			<br>
-			<label for="seventeen">#17 Hole:</label>
-			<input type="text" id="seventeen" th:field="*{seventeen}" />
-			<br>
-			<label for="eighteen">#18 Hole:</label>
-			<input type="text" id="eighteen" th:field="*{eighteen}" />
-			
-			
-
-		  	
-						
-		  	
-		<br>
+		 	<label for="clist">Course</label>
+			 <select id="clist" th:field="*{course}" class="form-control">
+       			<option th:each="course: ${course}" th:value="${course.course_id}" th:text="${course.name}"></option>
+    		</select>
+   
 			<input type="submit" value="Save"></input>
 			
 		</form>
-	</div>
-
+	
 </body>
 </html>

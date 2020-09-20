@@ -12,27 +12,24 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "COURSE")
 public class Course {
 	
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    private Long course_id;
     
 	private String name, city, address;
 	private int holesqty;
 	
-	@OneToMany(mappedBy="course")
-	private List<Game> games;
-	
-	
-
-public List<Game> getGames() {
+	public List<Game> getGames() {
 		return games;
 	}
 	public void setGames(List<Game> games) {
 		this.games = games;
 	}
+	@OneToMany(mappedBy="course")
+	private List<Game> games;
+	
 public Course(String name, String city, String address, int holesqty) {
 	this.name = name;
 	this.city = city;
@@ -41,13 +38,13 @@ public Course(String name, String city, String address, int holesqty) {
 }
 public Course() {}
 
-public Long getId() {
-	return id;
-}
-public void setId(Long id) {
-	this.id = id;
-}
 
+public Long getCourse_id() {
+	return course_id;
+}
+public void setCourse_id(Long course_id) {
+	this.course_id = course_id;
+}
 public String getName() {
 	return name;
 }

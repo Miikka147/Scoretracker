@@ -30,18 +30,29 @@ public class ScoretrackerController {
         model.addAttribute("courses", crepository.findAll());
         return "courselist";
     }
-  
-    @RequestMapping(value = "/add/{id}")
-    public String addGame(@PathVariable("id") Long courseId, Model model){
-    	model.addAttribute("game", new Game(courseId));
-    	model.addAttribute("courses", crepository.getOne(courseId));
-        return "addgame";
-    }     
+    @RequestMapping(value= "/addcourse")
+    public String addCourse(Model model) {
+    	model.addAttribute("course", new Course());
+    	return "addcourse";
+    }
     
-    @RequestMapping(value = "/add/save", method = RequestMethod.POST)
+  
+    @RequestMapping(value = "/addgame")
+    public String addGame(Model model){
+    	model.addAttribute("course", crepository.findAll());
+    	model.addAttribute("game", new Game());
+        return "addgame";
+    }
+    @RequestMapping(value = "csave", method = RequestMethod.POST)
+    public String save(Course course){
+        crepository.save(course);
+        return "redirect:./courselist";
+    } 
+    
+    @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(Game game){
         grepository.save(game);
-        return "redirect:../courselist";
+        return "redirect:./courselist";
     }    
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
@@ -55,4 +66,9 @@ public class ScoretrackerController {
     	model.addAttribute("games", grepository.findAll());
     	return "viewcourse";
     }   
+    @RequestMapping(value = "/recentgames")
+    public String viewRecentgames(Model model) {
+    	model.addAttribute("games", grepository.findAll());
+    	return "recentgames";
+    }
 }

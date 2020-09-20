@@ -21,10 +21,12 @@
     		<td th:text= ${course.address}></td>
     		<td th:text= ${course.holesqty}></td>
     		
- 				<td><a th:href="@{/view/{id}(id=${course.id})}">View Scores</a></td>     		
+ 				<td><a th:href="@{/view/{id}(id=${course.course_id})}">View Course</a></td>     		
     	</tr>
      </table>
-     <a href="/add" >Add Course</a> 
+     <a href="/addcourse" >Add Course</a>
+     <a href="/addgame">Add a new game</a>
+     <a href="/recentgames">View recent games</a>
 	   	
 </body>
 </html>
