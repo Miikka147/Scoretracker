@@ -13,6 +13,8 @@ import fi.lehtinen.Scoretracker.domain.Course;
 import fi.lehtinen.Scoretracker.domain.CourseRepository;
 import fi.lehtinen.Scoretracker.domain.Game;
 import fi.lehtinen.Scoretracker.domain.GameRepository;
+import fi.lehtinen.Scoretracker.domain.Hole;
+import fi.lehtinen.Scoretracker.domain.HoleRepository;
 
 
 
@@ -22,7 +24,8 @@ public class ScoretrackerController {
 	private CourseRepository crepository;
 	@Autowired
 	private GameRepository grepository;
-	
+	@Autowired
+	private HoleRepository hrepository;
 
 
     @RequestMapping(value= {"/", "/courselist"})
@@ -43,10 +46,22 @@ public class ScoretrackerController {
     	model.addAttribute("game", new Game());
         return "addgame";
     }
+    @RequestMapping(value = "/addhole/{id}")
+    public String addHole(@PathVariable("id") Long courseId,Model model){
+    	model.addAttribute("course", crepository.getOne(courseId));
+    	model.addAttribute("hole", new Hole());
+        return "addhole";
+    }
+    
     @RequestMapping(value = "csave", method = RequestMethod.POST)
     public String save(Course course){
         crepository.save(course);
         return "redirect:./courselist";
+    }
+    @RequestMapping(value = "addhole/hsave", method = RequestMethod.POST)
+    public String save(Hole hole){
+        hrepository.save(hole);
+        return "redirect:../courselist";
     } 
     
     @RequestMapping(value = "save", method = RequestMethod.POST)
@@ -63,7 +78,8 @@ public class ScoretrackerController {
     @RequestMapping(value = "/view/{id}")
     public String viewCourse(@PathVariable("id") Long courseId, Model model) {
     	model.addAttribute("courses", crepository.getOne(courseId));
-    	model.addAttribute("games", grepository.findAll());
+    	model.addAttribute("games", grepository.findByCourse(crepository.findById(courseId)));
+    	model.addAttribute("holes", hrepository.findByCourse(crepository.findById(courseId)));
     	return "viewcourse";
     }   
     @RequestMapping(value = "/recentgames")

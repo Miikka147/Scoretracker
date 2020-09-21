@@ -5,9 +5,9 @@ import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface GameRepository extends CrudRepository<Game, Long> {
+public interface HoleRepository extends CrudRepository<Hole, Long> {
 
-	List<Game>findByCourse(Optional<Course> optional);
+	List<Hole>findByCourse(Optional<Course> optional);
 	
 	
 	

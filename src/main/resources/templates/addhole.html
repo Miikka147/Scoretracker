@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Course</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	
+	
+		<form th:object="${hole}" th:action="@{hsave}" action="#" method="post" style="width:300px">
+		  	 <div class="form-group">
+		  		<label for="name">Hole name/number</label>
+				<input type="text" class="form-control" id="par" th:field="*{name}" />
+				</div>
+		  	 <div class="form-group">
+		  		<label for="par">Par</label>
+				<input type="text" class="form-control" id="par" th:field="*{par}" />
+				</div>
+				
+			<div class="form-group">
+		  		<label for="distance">Distance</label>
+				<input type="text" class="form-control" id="distance" th:field="*{distance}" />
+				</div>
+				
+				
+					<div class="form-group" style="display: none;">
+		 		
+			 	<select id="clist" th:field="*{course}" class="form-control">
+       				<option th:each="course: ${course}" id="clist" th:field="*{course}" class="form-control" th:value="${course.course_id}" th:text="${course.name}"></option>
+    			</select>
+   				</div>
+		 		
+			 	
+   				
+				
+		 		
+			 	
+   				
+   				
+   			<button type="submit" class="btn btn-primary">Save</button>
+			
+			
+		</form>
+	</div>
+</body>
+</html>

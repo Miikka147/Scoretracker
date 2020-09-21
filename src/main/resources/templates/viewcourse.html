@@ -7,24 +7,29 @@
 	</head>
 <body>
 	<div th:object="${courses}" >
-    <h1 th:text="*{name}"></h1><h1 th:text="*{city}"></h1>
-</div>
-    <table class="table table-striped">
+    	<h1 th:text="*{name}"></h1><h1 th:text="*{city}"></h1>
+		</div>
+		
+
+    	
+    <table th:each = "game : ${games}" class="table table-striped" style="width:300px">
 	
-		<tr th:each = "course : ${courses}">
-		    <th></th>
-		    <th>Total</th>
-		    <th th:text="${course.name}"></th>
-		    <th><a th:href="@{/}">Back</a></th>
-		</tr>  
-		   	<tr th:each = "games : ${games}">
-    		<td th:text=${games.course.name}></td>
-    		<td th:text=${games.score}></td>
+		<tr>
+    		<th></th>
+		    	<th><a th:href="@{/addhole/{id}(id=${game.course.course_id})}" class="btn btn-primary">Add Hole</a></th>
+		    	<th><a th:href="@{/}" class="btn btn-primary">Back</a></th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>Par</th>
+				<th>Distance</th>
+			</tr>
+    		<tr th:each = "holes : ${holes}">
     		
-  		<tr th:each = "course : ${courses}">
-  			
-    			
-        	</tr>
+    		<th th:text=${holes.name}></th>
+    		<td th:text=${holes.par}></td>
+    		<td th:text=${holes.distance}></td>
+    		
  
         	
      </table>

@@ -13,6 +13,7 @@ import fi.lehtinen.Scoretracker.domain.Game;
 import fi.lehtinen.Scoretracker.domain.Course;
 import fi.lehtinen.Scoretracker.domain.CourseRepository;
 import fi.lehtinen.Scoretracker.domain.GameRepository;
+import fi.lehtinen.Scoretracker.domain.HoleRepository;
 
 
 
@@ -25,7 +26,7 @@ public class ScoretrackerApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner Scoretracker(CourseRepository crepository,GameRepository grepository) {
+	public CommandLineRunner Scoretracker(CourseRepository crepository,GameRepository grepository,HoleRepository hrepository) {
 		return (args) -> {
 			log.info("save courses");
 			
@@ -33,6 +34,7 @@ public class ScoretrackerApplication {
 			crepository.save(new Course("Siltamäki","Helsinki","siltamäentie",18));
 			crepository.save(new Course("Kivikko frisbeegolf","Helsinki","peltotie 19",18));	
 			grepository.save(new Game(20,crepository.findByName("Siltamäki").get(0)));
+			grepository.save(new Game(20,crepository.findByName("Kivikko frisbeegolf").get(0)));
 			log.info("fetch all courses");
 			for (Course course : crepository.findAll()) {
 				log.info(course.toString());
