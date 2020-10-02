@@ -19,12 +19,12 @@ import fi.lehtinen.Scoretracker.domain.HoleRepository;
 
 @SpringBootApplication
 public class ScoretrackerApplication {
-	private static final Logger log = LoggerFactory.getLogger(ScoretrackerApplication.class);
+	//private static final Logger log = LoggerFactory.getLogger(ScoretrackerApplication.class);
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ScoretrackerApplication.class, args);
 	}
-	
+	/*
 	@Bean
 	public CommandLineRunner Scoretracker(CourseRepository crepository,GameRepository grepository,HoleRepository hrepository) {
 		return (args) -> {
@@ -42,5 +42,5 @@ public class ScoretrackerApplication {
 
 		};
 	}
-
-}
+*/
+} 

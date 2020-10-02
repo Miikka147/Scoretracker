@@ -10,11 +10,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "HOLE")
 public class Hole {
 	
 @Id
-@GeneratedValue(strategy=GenerationType.AUTO)
+@GeneratedValue(strategy=GenerationType.IDENTITY)
 private Long id;
 private String name;
 private int par;

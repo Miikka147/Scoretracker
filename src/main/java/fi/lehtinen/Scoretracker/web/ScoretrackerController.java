@@ -1,5 +1,9 @@
 package fi.lehtinen.Scoretracker.web;
 
+import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,7 +50,7 @@ public class ScoretrackerController {
     	model.addAttribute("game", new Game());
         return "addgame";
     }
-    @RequestMapping(value = "/addhole/{id}")
+    @RequestMapping(value = "/addhole/{id}") 
     public String addHole(@PathVariable("id") Long courseId,Model model){
     	model.addAttribute("course", crepository.getOne(courseId));
     	model.addAttribute("hole", new Hole());

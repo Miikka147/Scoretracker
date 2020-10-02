@@ -15,10 +15,10 @@ import javax.persistence.Table;
 public class Course {
 	
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long course_id;
     
-	private String name, city, address;
+	private String name, city, address,rating;
 	private int holesqty;
 	
 	public List<Game> getGames() {
@@ -68,6 +68,12 @@ public int getHolesqty() {
 }
 public void setHolesqty(int holesqty) {
 	this.holesqty = holesqty;
+}
+public String getRating() {
+	return rating;
+}
+public void setRating(String rating) {
+	this.rating = rating;
 }
 
 }

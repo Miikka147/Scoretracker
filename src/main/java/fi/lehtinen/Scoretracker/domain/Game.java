@@ -7,14 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "GAME")
 public class Game {
 	
 @Id
-@GeneratedValue(strategy=GenerationType.AUTO)
+@GeneratedValue(strategy=GenerationType.IDENTITY)
 private Long id;
 private int score;
 
