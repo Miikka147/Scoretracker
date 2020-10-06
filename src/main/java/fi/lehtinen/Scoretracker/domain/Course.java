@@ -30,6 +30,16 @@ public class Course {
 	@OneToMany(mappedBy="course")
 	private List<Game> games;
 	
+	@OneToMany(mappedBy="course")
+	private List<Hole> holes;
+	
+	public void setHoles(List<Hole> holes) {
+		this.holes = holes;
+	}
+	public List<Hole> getHoles(){
+		return holes;
+	}
+	
 public Course(String name, String city, String address, int holesqty) {
 	this.name = name;
 	this.city = city;

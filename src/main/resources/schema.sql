@@ -13,6 +13,24 @@ holesqty int);
 CREATE TABLE game
 (id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY
 ,score int NOT NULL,
+score1 int,
+score2 int,
+score3 int,
+score4 int,
+score5 int,
+score6 int,
+score7 int,
+score8 int,
+score9 int,
+score10 int,
+score11 int,
+score12 int,
+score13 int,
+score14 int,
+score15 int,
+score16 int,
+score17 int,
+score18 int,
 course_id BIGINT NOT NULL);
 
 CREATE TABLE hole (

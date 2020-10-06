@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,14 +45,15 @@ public class ScoretrackerController {
     }
     
   
-    @RequestMapping(value = "/addgame")
-    public String addGame(Model model){
-    	model.addAttribute("course", crepository.findAll());
+    @RequestMapping(value = "/addgame/{id}")
+    public String addGame(@PathVariable("id") Long courseId, Model model){
+    	model.addAttribute("course", crepository.getOne(courseId));
+    	model.addAttribute("holes", hrepository.findByCourse(crepository.findById(courseId)));
     	model.addAttribute("game", new Game());
         return "addgame";
     }
     @RequestMapping(value = "/addhole/{id}") 
-    public String addHole(@PathVariable("id") Long courseId,Model model){
+    public String addHole(@PathVariable("id") Long courseId, Model model){
     	model.addAttribute("course", crepository.getOne(courseId));
     	model.addAttribute("hole", new Hole());
         return "addhole";
@@ -62,22 +64,27 @@ public class ScoretrackerController {
         crepository.save(course);
         return "redirect:./courselist";
     }
-    @RequestMapping(value = "addhole/hsave", method = RequestMethod.POST)
+    @RequestMapping(value ="addhole/hsave", method = RequestMethod.POST)
     public String save(Hole hole){
         hrepository.save(hole);
         return "redirect:../courselist";
-    } 
+    }
+    @RequestMapping(value ="/hsave", method = RequestMethod.POST)
+    public String edit(Hole hole){
+        hrepository.save(hole);
+        return "redirect:./courselist";
+    }
     
-    @RequestMapping(value = "save", method = RequestMethod.POST)
+    @RequestMapping(value = "addgame/save", method = RequestMethod.POST)
     public String save(Game game){
         grepository.save(game);
-        return "redirect:./courselist";
+        return "redirect:../courselist";
     }    
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String deleteBook(@PathVariable("id") Long courseId, Model model) {
-    	crepository.deleteById(courseId);
-        return "redirect:../booklist";
+    public String deleteHole(@PathVariable("id") Long holeId, Model model) {
+    	hrepository.deleteById(holeId);
+        return "redirect:../courselist";
     }     
     @RequestMapping(value = "/view/{id}")
     public String viewCourse(@PathVariable("id") Long courseId, Model model) {
@@ -91,4 +98,9 @@ public class ScoretrackerController {
     	model.addAttribute("games", grepository.findAll());
     	return "recentgames";
     }
+	@GetMapping(value = "/edit/{id}")
+	public String editHole(@PathVariable("id") Long holeId, Model model) {
+		model.addAttribute("hole", hrepository.getOne(holeId));
+		return "edithole";
+	}
 }

@@ -1,34 +1,51 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Courses</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}" />
 	</head>
 <body>
+<form th:action="@{/logout}" method="post">
+	<h1>
+			<input type="submit" value="Log Out" class="btn btn-sm btn-danger" style="float:right;margin-bottom:5px;margin-top:5px;margin-right:50px;"/>
+			<label th:inline="text" style="float:right;margin-right:5px;margin-top:10px;font-size:20px;">Logged in as [[${#httpServletRequest.remoteUser}]]</label>
+			</h1>
+			</form>
 	<div th:object="${courses}" >
     	<h1 th:text="*{name}"></h1><h1 th:text="*{city}"></h1>
-		<p>Description</p>
-		<p>Rating</p>
-		<p>Address</p>
+    	
+    	<label for="description">Description:</label>
+    		<span id="description" th:text="*{city}"></span><br>
+    	<label for="address">Address:</label>
+    		<span id="address" th:text="*{address}"></span><br>
+    	
+    	<label for="rating">Rating:</label>
+    	<span id="rating" th:text="*{rating}"></span><br>
+    	
+		
 		
 		</div>
 		<div th:object="${courses}">
-		<a th:href="@{/addhole/{id}(id=${id})}" class="btn btn-primary">Add Hole</a>
+		<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/addhole/{id}(id=${id})}" class="btn btn-primary">Add Hole</a>
 		    	<a th:href="@{/}" class="btn btn-primary">Back</a>
 		</div>
 
     	
-    <table class="table table-striped" style="width:300px">
+    <table class="table table-striped" style="width:600px">
     <tr>
 				<th></th>
 				<th>Par</th>
 				<th>Distance</th>
+				<th sec:authorize="hasAuthority('ADMIN')" ></th>
+				<th sec:authorize="hasAuthority('ADMIN')" ></th>
 			</tr>
     		<tr  th:each = "holes : ${holes}" >
     		<td th:text=${holes.name}></td>
     		<td th:text=${holes.par}></td>
     		<td th:text=${holes.distance}></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${holes.id})}">Edit</a></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${holes.id})}">Delete</a></td>
     		
  
         	
