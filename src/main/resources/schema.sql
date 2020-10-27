@@ -1,9 +1,9 @@
 DROP TABLE IF EXISTS course CASCADE;
 DROP TABLE IF EXISTS game CASCADE;
 DROP TABLE IF EXISTS hole CASCADE;
-DROP TABLE IF EXISTS user CASCADE;
+DROP TABLE IF EXISTS usr CASCADE;
 
-CREATE TABLE user
+CREATE TABLE usr
 (id SERIAL NOT NULL PRIMARY KEY,
 username VARCHAR(50),
 passwordHash VARCHAR(150),
@@ -48,8 +48,8 @@ par int,
 distance int,
 course_id BIGINT NOT NULL);
 
-INSERT INTO user (username, passwordHash, role) VALUES ('user','$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6','USER');
-INSERT INTO user (username, passwordHash, role) VALUES ('admin','$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C','ADMIN');
+INSERT INTO usr (username, passwordHash, role) VALUES ('user','$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6','USER');
+INSERT INTO usr (username, passwordHash, role) VALUES ('admin','$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C','ADMIN');
 
 INSERT INTO course (name, city, address, rating, holesqty) VALUES ('Siltamäki','Helsinki','Pallomäentie','A2',18);
 INSERT INTO course (name, city, address, rating, holesqty) VALUES ('Kivikko','Helsinki','Savikiekontie 8','A1',18);

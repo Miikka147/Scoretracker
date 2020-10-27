@@ -3,7 +3,7 @@ package fi.lehtinen.Scoretracker.domain;
 import javax.persistence.*;
 
 @Entity
-public class User {
+public class Usr {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,10 @@ public class User {
     @Column(name = "role", nullable = false)
     private String role;
     
-    public User() {
+    public Usr() {
     }
 
-	public User(String username, String passwordHash, String role) {
+	public Usr(String username, String passwordHash, String role) {
 		super();
 		this.username = username;
 		this.passwordHash = passwordHash;
