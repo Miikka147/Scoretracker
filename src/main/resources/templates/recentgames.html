@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Courses</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}" />
 	</head>
 <body>
 <form th:action="@{/logout}" method="post">
@@ -12,39 +12,41 @@
 			<label th:inline="text" style="float:right;margin-right:5px;margin-top:10px;font-size:20px;">Logged in as [[${#httpServletRequest.remoteUser}]]</label>
 			</h1>
 			</form>
-    <table class="table table-striped" style="width:1300px">
-	
-		<tr>
-		    <th>Course</th>
-		    <th>Hole 1</th>
-		    <th>Hole 2</th>
-		    <th>Hole 3</th>
-		    <th>Hole 4</th>
-		    <th>Hole 5</th>
-		    <th>Hole 6</th>
-		    <th>Hole 7</th>
-		    <th>Hole 8</th>
-		    <th>Hole 9</th>
-		    <th>Hole 10</th>
-		    <th>Hole 11</th>
-		    <th>Hole 12</th>
-		    <th>Hole 13</th>
-		    <th>Hole 14</th>
-		    <th>Hole 15</th>
-		    <th>Hole 16</th>
-		    <th>Hole 17</th>
-		    <th>Hole 18</th>
-		    <th>Total Score</th>
-		    <th></th>
-		    <th><a th:href="@{/}">Back</a></th>
-	
+	<div th:object="${courses}" >
+    	<h1 th:text="*{name}"></h1><h1 th:text="*{city}"></h1>
+    	
+    	<label for="description">Description:</label>
+    		<span id="description" th:text="*{city}"></span><br>
+    	<label for="address">Address:</label>
+    		<span id="address" th:text="*{address}"></span><br>
+    	
+    	<label for="rating">Rating:</label>
+    	<span id="rating" th:text="*{rating}"></span><br>
+    	
+		
+		
+		</div>
+		<div th:object="${courses}">
+		<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/addhole/{id}(id=${id})}" class="btn btn-primary">Add Hole</a>
+		    	<a th:href="@{/}" class="btn btn-primary">Back</a>
+		</div>
+
+    	
+    <table class="table table-striped" style="width:600px">
+    <tr>
+				<th></th>
+				<th>Par</th>
+				<th>Distance</th>
+				<th sec:authorize="hasAuthority('ADMIN')" ></th>
+				<th sec:authorize="hasAuthority('ADMIN')" ></th>
+			</tr>
+    		<tr  th:each = "holes : ${holes}" >
+    		<td th:text=${holes.name}></td>
+    		<td th:text=${holes.par}></td>
+    		<td th:text=${holes.distance}></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${holes.id})}">Edit</a></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${holes.id})}">Delete</a></td>
     		
-    		
-    		
-    		
-    		
-    		
-  	
  
         	
      </table>
