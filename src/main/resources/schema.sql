@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS usr CASCADE;
 CREATE TABLE usr
 (id SERIAL NOT NULL PRIMARY KEY,
 username VARCHAR(50),
-passwordHash VARCHAR(50),
+passwordHash VARCHAR(150),
 role VARCHAR(20));
 
 
