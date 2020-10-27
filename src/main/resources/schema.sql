@@ -1,3 +1,8 @@
+DROP TABLE course;
+DROP TABLE game;
+DROP TABLE hole;
+
+
 CREATE TABLE course
 (course_id SERIAL NOT NULL PRIMARY KEY,
 name VARCHAR(50),
