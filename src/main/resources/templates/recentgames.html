@@ -3,7 +3,7 @@
 <head>
     <title>Courses</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}" />
 	</head>
 <body>
 <form th:action="@{/logout}" method="post">
@@ -38,7 +38,7 @@
 		    <th></th>
 		    <th><a th:href="@{/}">Back</a></th>
 		</tr>  
-		   	<tr th:each = "games, iterStat : ${games}">
+		   	<tr th:each = "games: ${games}">
     		<td th:text="${games.course.name}"></td>
     		<td th:text="${games.score1}"></td>
     		<td th:text="${games.score2}"></td>
