@@ -99,7 +99,7 @@ public class ScoretrackerController {
     	return "viewcourse";
     }   
  
-    @RequestMapping(value= {"/recentgames"})
+    @RequestMapping(value= "/recentgames", method = RequestMethod.GET)
     public String viewGames(Model model) {	
         model.addAttribute("games", grepository.findAll());
         return "recentgames";}
