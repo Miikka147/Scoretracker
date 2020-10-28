@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 public class Game {
 	
 @Id
-@GeneratedValue(strategy=GenerationType.IDENTITY)
+@GeneratedValue(strategy=GenerationType.AUTO)
 private Long id;
 private int score;
 private int score1;

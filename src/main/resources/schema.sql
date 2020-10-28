@@ -18,28 +18,6 @@ address VARCHAR(100),
 rating VARCHAR(10),
 holesqty int);
 
-CREATE TABLE game
-(id SERIAL NOT NULL PRIMARY KEY
-,score int,
-score1 int,
-score2 int,
-score3 int,
-score4 int,
-score5 int,
-score6 int,
-score7 int,
-score8 int,
-score9 int,
-score10 int,
-score11 int,
-score12 int,
-score13 int,
-score14 int,
-score15 int,
-score16 int,
-score17 int,
-score18 int,
-course BIGINT NOT NULL);
 
 CREATE TABLE hole (
 id SERIAL NOT NULL PRIMARY KEY,
@@ -47,6 +25,12 @@ name VARCHAR(50),
 par int,
 distance int,
 course_id BIGINT NOT NULL);
+
+CREATE TABLE game (
+id SERIAL NOT NULL PRIMARY KEY,
+score int,
+course_id BIGINT NOT NULL);
+
 
 INSERT INTO usr (username, passwordHash, role) VALUES ('user','$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6','USER');
 INSERT INTO usr (username, passwordHash, role) VALUES ('admin','$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C','ADMIN');
@@ -59,7 +43,7 @@ INSERT INTO course (name, city, address, rating, holesqty) VALUES ('Oittaa-Kalli
 
 
 
-INSERT INTO game (score, course) VALUES (-3,3);
+
 
 INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #1:',3,66,1);
 INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #2:',3,86,1);
@@ -138,3 +122,4 @@ INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #16:',4,154,5);
 INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #17:',3,85,5);
 INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #18:',3,83,5);
 
+INSERT INTO game (score,course_id) VALUES(13,1);
