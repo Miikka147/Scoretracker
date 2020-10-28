@@ -78,9 +78,9 @@ public class ScoretrackerController {
         hrepository.save(hole);
         return "redirect:./courselist";
     }
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')") // kahden tai useamman roolin hyväksyminen
-    @RequestMapping(value = "addgame/save", method = RequestMethod.POST)
-    public String save(Game game){
+    
+    @RequestMapping(value = "gsave", method = RequestMethod.POST)
+    public String saveGame(Game game){
         grepository.save(game);
         return "redirect:../courselist";
     }    
