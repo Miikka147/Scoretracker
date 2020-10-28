@@ -6,71 +6,10 @@
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 	</head>
 <body>
-<form th:action="@{/logout}" method="post">
-	<h1>
-			<input type="submit" value="Log Out" class="btn btn-sm btn-danger" style="float:right;margin-bottom:5px;margin-top:5px;margin-right:50px;"/>
-			<label th:inline="text" style="float:right;margin-right:5px;margin-top:10px;font-size:20px;">Logged in as [[${#httpServletRequest.remoteUser}]]</label>
-			</h1>
-			</form>
-    <table class="table table-striped" style="width:1300px">
-	
-		<tr>
-		    <th>Course</th>
-		    <th>Hole 1</th>
-		    <th>Hole 2</th>
-		    <th>Hole 3</th>
-		    <th>Hole 4</th>
-		    <th>Hole 5</th>
-		    <th>Hole 6</th>
-		    <th>Hole 7</th>
-		    <th>Hole 8</th>
-		    <th>Hole 9</th>
-		    <th>Hole 10</th>
-		    <th>Hole 11</th>
-		    <th>Hole 12</th>
-		    <th>Hole 13</th>
-		    <th>Hole 14</th>
-		    <th>Hole 15</th>
-		    <th>Hole 16</th>
-		    <th>Hole 17</th>
-		    <th>Hole 18</th>
-		    <th>Total Score</th>
-		    <th></th>
-		    <th><a th:href="@{/}">Back</a></th>
-		</tr>  
-		   	<tr th:each = "games, iterStat : ${games}">
-    		<td th:text="${games.course.name}"></td>
-    		<td th:text="${games.score1}"></td>
-    		<td th:text="${games.score2}"></td>
-    		<td th:text="${games.score3}"></td>
-    		<td th:text="${games.score4}"></td>
-    		<td th:text="${games.score5}"></td>
-    		<td th:text="${games.score6}"></td>
-    		<td th:text="${games.score7}"></td>
-    		<td th:text="${games.score8}"></td>
-    		<td th:text="${games.score9}"></td>
-    		<td th:text="${games.score10}"></td>
-    		<td th:text="${games.score11}"></td>
-    		<td th:text="${games.score12}"></td>
-    		<td th:text="${games.score13}"></td>
-    		<td th:text="${games.score14}"></td>
-    		<td th:text="${games.score15}"></td>
-    		<td th:text="${games.score16}"></td>
-    		<td th:text="${games.score17}"></td>
-    		<td th:text="${games.score18}"></td>
-    		<td th:text="${games.score}"></td>
-    		
-    	
-    		<td></td>
-    		
-    		
-    		
-    		
-    		
-    		
-  	
- 
-        	
+<table>
+<tr>
+<th>sjsj</th>
+</tr>
      </table>
     
 </body>
