@@ -35,7 +35,7 @@ private int score17;
 private int score18;
 
 @ManyToOne
-@JoinColumn(name="course")
+@JoinColumn(name="course_id")
 public Course course;
 
 public Game() {

@@ -20,7 +20,7 @@ private int par;
 private int distance;
 
 @ManyToOne
-@JoinColumn(name="course")
+@JoinColumn(name="course_id")
 public Course course;
 
 public Hole() {

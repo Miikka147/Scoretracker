@@ -39,7 +39,7 @@ score15 int,
 score16 int,
 score17 int,
 score18 int,
-course_id BIGINT NOT NULL);
+course BIGINT NOT NULL);
 
 CREATE TABLE hole (
 id SERIAL NOT NULL PRIMARY KEY,
@@ -59,7 +59,7 @@ INSERT INTO course (name, city, address, rating, holesqty) VALUES ('Oittaa-Kalli
 
 
 
-INSERT INTO game (score, course_id) VALUES (-3,3);
+INSERT INTO game (score, course) VALUES (-3,3);
 
 INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #1:',3,66,1);
 INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #2:',3,86,1);
