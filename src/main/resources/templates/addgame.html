@@ -24,11 +24,7 @@
 				<th>Distance</th>
 				<th>Score</th>
 			</tr>
-    		<tr  th:each = "holes, iterStat : ${holes}" >
-    		<td th:text=${holes.name}></td>
-    		<td th:text=${holes.par}></td>
-    		<td th:text=${holes.distance}></td>
-    		<td><input th:id="'score' +${iterStat.count}" type="text" class="form-control" th:field="*{score__${iterStat.index+1}__}" /></td>
+  
     		
  
         	
