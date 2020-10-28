@@ -3,6 +3,7 @@ package fi.lehtinen.Scoretracker.domain;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,10 +28,10 @@ public class Course {
 	public void setGames(List<Game> games) {
 		this.games = games;
 	}
-	@OneToMany(mappedBy="course")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
 	private List<Game> games;
 	
-	@OneToMany(mappedBy="course")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
 	private List<Hole> holes;
 	
 	public void setHoles(List<Hole> holes) {
