@@ -99,10 +99,13 @@ public class ScoretrackerController {
     	return "viewcourse";
     }   
  
-    @RequestMapping(value = "/recentgames")
-    public String viewRecentgames(Model model) {
-    	return "recentgames";
-    }
+ 
+    @RequestMapping(value = "/recentgames/{id}")
+    public String viewRecentgames(@PathVariable("id") Long courseId, Model model){
+    	model.addAttribute("course", crepository.getOne(courseId));
+    	model.addAttribute("holes", hrepository.findByCourse(crepository.findById(courseId)));
+    	model.addAttribute("games", grepository.findByCourse(crepository.findById(courseId)));
+        return "recentgames";}
     
     @PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping(value = "/edit/{id}")

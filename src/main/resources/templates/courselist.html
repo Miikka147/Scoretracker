@@ -33,11 +33,12 @@
     		
     		
  				<td ><a th:href="@{/view/{id}(id=${course.course_id})}">View Course</a></td>
- 				<td><a th:href="@{/addgame/{id}(id=${course.course_id})}">Add Game</a>  		
+ 				<td><a th:href="@{/addgame/{id}(id=${course.course_id})}">Add Game</a>
+ 				<td><a href="@{/recentgames/{id}(id=${course.course_id})}">View recent games</a></td>		
     	</tr>
      </table>
      <a sec:authorize="hasAuthority('ADMIN')"href="/addcourse" class="btn btn-primary">Add Course</a>
-     <a href="/recentgames" class="btn btn-primary">View recent games</a>
+    
 	   	
 </body>
 </html>
