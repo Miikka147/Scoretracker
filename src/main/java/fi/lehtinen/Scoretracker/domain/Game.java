@@ -71,10 +71,11 @@ public void setCourse(Course course) {
 public int getScore1() {
 	return score1;
 }
-/*
+
 public void setScore1(int score1) {
 	this.score1 = score1;
 }
+/*
 public int getScore2() {
 	return score2;
 }

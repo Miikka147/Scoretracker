@@ -29,7 +29,7 @@ course_id BIGINT NOT NULL);
 CREATE TABLE game (
 id SERIAL NOT NULL PRIMARY KEY,
 score int,
-score1 int DEFAULT O,
+score1 INTEGER DEFAULT O,
 course_id BIGINT NOT NULL);
 
 
