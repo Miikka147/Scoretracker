@@ -123,4 +123,4 @@ INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #16:',4,154,5);
 INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #17:',3,85,5);
 INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #18:',3,83,5);
 
-INSERT INTO game (score,course_id) VALUES(13,1);
+INSERT INTO game (score,score1,course_id) VALUES(13,1,1);
