@@ -40,7 +40,7 @@ public class ScoretrackerController {
     }
     @RequestMapping(value = "/recentgames")
     public String viewRecentgames(Model model) {
-    	model.addAttribute("games", crepository.findAll());
+    	model.addAttribute("courses", crepository.findAll());
     	return "recentgames";
     }
     @RequestMapping(value= "/addcourse")
