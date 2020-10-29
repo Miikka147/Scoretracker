@@ -38,6 +38,11 @@ public class ScoretrackerController {
         model.addAttribute("courses", crepository.findAll());
         return "courselist";
     }
+    @RequestMapping(value = "/recentgames")
+    public String viewRecentgames(Model model) {
+    	model.addAttribute("games", crepository.findAll());
+    	return "recentgames";
+    }
     @RequestMapping(value= "/addcourse")
     public String addCourse(Model model) {
     	model.addAttribute("course", new Course());
@@ -93,11 +98,7 @@ public class ScoretrackerController {
     	model.addAttribute("holes", hrepository.findByCourse(crepository.findById(courseId)));
     	return "viewcourse";
     }   
-    @RequestMapping(value = "/recentgames")
-    public String viewRecentgames(Model model) {
-    	model.addAttribute("games", grepository.findAll());
-    	return "recentgames";
-    }
+  
 	@GetMapping(value = "/edit/{id}")
 	public String editHole(@PathVariable("id") Long holeId, Model model) {
 		model.addAttribute("hole", hrepository.getOne(holeId));
