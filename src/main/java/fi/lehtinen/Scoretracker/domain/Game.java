@@ -15,6 +15,24 @@ public class Game {
 @GeneratedValue(strategy=GenerationType.AUTO)
 private Long id;
 private int score;
+private int score1;
+private int score2;
+private int score3;
+private int score4;
+private int score5;
+private int score6;
+private int score7;
+private int score8;
+private int score9;
+private int score10;
+private int score11;
+private int score12;
+private int score13;
+private int score14;
+private int score15;
+private int score16;
+private int score17;
+private int score18;
 
 @ManyToOne
 @JoinColumn(name="course_id")
@@ -48,7 +66,7 @@ public Course getCourse() {
 public void setCourse(Course course) {
 	this.course = course;
 }
-/*
+
 public int getScore1() {
 	return score1;
 }
@@ -157,5 +175,5 @@ public int getScore18() {
 public void setScore18(int score18) {
 	this.score18 = score18;
 }
-*/
+
 }
