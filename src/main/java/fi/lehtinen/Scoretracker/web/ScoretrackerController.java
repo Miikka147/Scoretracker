@@ -65,7 +65,7 @@ public class ScoretrackerController {
         return "addhole";
     }
     
-    @RequestMapping(value = "csave", method = RequestMethod.POST)
+    @RequestMapping(value = "addcourse/csave", method = RequestMethod.POST)
     public String save(Course course){
         crepository.save(course);
         return "redirect:./courselist";
