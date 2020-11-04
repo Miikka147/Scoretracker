@@ -15,8 +15,8 @@ public class Game {
 @GeneratedValue(strategy=GenerationType.AUTO)
 private Long id;
 private int score;
-private int score1;
 /*
+private int score1;
 private int score2;
 private int score3;
 private int score4;
@@ -67,7 +67,7 @@ public Course getCourse() {
 public void setCourse(Course course) {
 	this.course = course;
 }
-
+/*
 public int getScore1() {
 	return score1;
 }
@@ -75,7 +75,7 @@ public int getScore1() {
 public void setScore1(int score1) {
 	this.score1 = score1;
 }
-/*
+
 public int getScore2() {
 	return score2;
 }

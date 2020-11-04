@@ -22,14 +22,15 @@ public class Course {
 	private String name, city, address,rating;
 	private int holesqty;
 	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
+	private List<Game> games;
+	
 	public List<Game> getGames() {
 		return games;
 	}
 	public void setGames(List<Game> games) {
 		this.games = games;
 	}
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
-	private List<Game> games;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
 	private List<Hole> holes;
