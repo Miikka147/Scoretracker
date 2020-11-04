@@ -39,7 +39,7 @@ score15 int,
 score16 int,
 score17 int,
 score18 int,
-course_id BIGINT);
+course BIGINT);
 
 
 CREATE TABLE hole (
