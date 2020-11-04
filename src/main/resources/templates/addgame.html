@@ -24,11 +24,11 @@
 				<th>Distance</th>
 				<th>Score</th>
 			</tr>
-    		<tr  th:each = "holes, count : ${holes}" >
+    		<tr  th:each = "holes, iStat : ${holes}" >
     		<td th:text=${holes.name}></td>
     		<td th:text=${holes.par}></td>
     		<td th:text=${holes.distance}></td>
-    		<td th:text=${holes.count}></td>
+    		<td th:text=${iStat}></td>
     		
  
         	
