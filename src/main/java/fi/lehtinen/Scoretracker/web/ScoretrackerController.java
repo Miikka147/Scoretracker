@@ -81,7 +81,7 @@ public class ScoretrackerController {
         return "redirect:./courselist";
     }
     
-    @RequestMapping(value = "addgame/save", method = RequestMethod.POST)
+    @RequestMapping(value = "addgame/gsave", method = RequestMethod.POST)
     public String save(Game game){
         grepository.save(game);
         return "redirect:../courselist";
