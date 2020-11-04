@@ -56,11 +56,11 @@ course_id BIGINT);
 INSERT INTO usr (username, passwordHash, role) VALUES ('user','$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6','USER');
 INSERT INTO usr (username, passwordHash, role) VALUES ('admin','$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C','ADMIN');
 
-INSERT INTO course (name, city, address, rating, holesqty) VALUES ('Siltamäki','Helsinki','Pallomäentie','A2',18);
+INSERT INTO course (name, city, address, rating, holesqty) VALUES ('Siltamaki','Helsinki','Pallomaentie','A2',18);
 INSERT INTO course (name, city, address, rating, holesqty) VALUES ('Kivikko','Helsinki','Savikiekontie 8','A1',18);
 INSERT INTO course (name, city, address, rating, holesqty) VALUES ('Munkkiniemi','Helsinki','Nuottapolku 12','B1',9);
 INSERT INTO course (name, city, address, rating, holesqty) VALUES ('Oittaa-Rantapuisto','Espoo','Oittaantie','C1',9);
-INSERT INTO course (name, city, address, rating, holesqty) VALUES ('Oittaa-Kalliometsä','Espoo','Oittaantie','A1',18);
+INSERT INTO course (name, city, address, rating, holesqty) VALUES ('Oittaa-Kalliometsa','Espoo','Oittaantie','A1',18);
 
 
 
