@@ -10,8 +10,8 @@ passwordHash VARCHAR(150),
 role VARCHAR(20));
 
 
-CREATE TABLE course
-(course_id SERIAL NOT NULL PRIMARY KEY,
+CREATE TABLE course (
+course_id SERIAL NOT NULL PRIMARY KEY,
 name VARCHAR(50),
 city VARCHAR(30),
 address VARCHAR(100),
