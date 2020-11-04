@@ -53,8 +53,10 @@ public class ScoretrackerController {
     @RequestMapping(value = "/addgame/{id}")
     public String addGame(@PathVariable("id") Long courseId, Model model){
     	model.addAttribute("course", crepository.getOne(courseId));
+    	model.addAttribute("holes", hrepository.findByCourse(crepository.findById(courseId)));
     	model.addAttribute("game", new Game());
         return "addgame";
+    
     }
     @RequestMapping(value = "/addhole/{id}") 
     public String addHole(@PathVariable("id") Long courseId, Model model){
