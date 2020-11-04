@@ -1,6 +1,6 @@
 package fi.lehtinen.Scoretracker.domain;
 
-
+yaas
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
