@@ -21,17 +21,17 @@ holesqty int);
 CREATE TABLE game
 (id SERIAL NOT NULL PRIMARY KEY
 ,score int,
-score1 int,
-score2 int,
-score3 int,
-score4 int,
-score5 int,
-score6 int,
-score7 int,
-score8 int,
-score9 int,
-score10 int,
-score11 int,
+scoreone int,
+scoretwo int,
+scorethree int,
+scorefour int,
+scorefive int,
+scoresix int,
+scoreseven int,
+scoreeight int,
+scorenine int,
+scoreten int,
+scoreelv int,
 score12 int,
 score13 int,
 score14 int,
@@ -39,7 +39,7 @@ score15 int,
 score16 int,
 score17 int,
 score18 int,
-course_id BIGINT);
+course BIGINT);
 
 
 CREATE TABLE hole (

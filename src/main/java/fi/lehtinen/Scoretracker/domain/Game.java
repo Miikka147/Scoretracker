@@ -15,6 +15,7 @@ public class Game {
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private Long id;
 private int score;
+
 private int score1;
 private int score2;
 private int score3;
@@ -33,6 +34,7 @@ private int score15;
 private int score16;
 private int score17;
 private int score18;
+
 
 @ManyToOne
 @JoinColumn(name="course_id")
