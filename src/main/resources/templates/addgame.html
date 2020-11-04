@@ -16,37 +16,7 @@
 <a th:href="@{/}" class="btn btn-primary">Back</a>
 	
 
-		<form th:object="${game}" th:action="@{gsave}" action="#" method="post" style="width:300px">
-			    <table class="table table-striped" style="width:300px">
-    <tr>
-				<th></th>
-				<th>Par</th>
-				<th>Distance</th>
-				<th>Score</th>
-			</tr>
-  
-    		
- 
-        	
-     </table>
-		
-		  	 <div class="form-group">
-		  		<label for="score">Score</label>
-				<input type="text" class="form-control" id="score" th:field="*{score}" />
-				</div>
-				
-				
-					<div class="form-group" style="display: none;">
-		 		
-			 	<select id="clist" th:field="*{course}" class="form-control">
-       				<option th:each="course: ${course}" id="clist" th:field="*{course_id}" class="form-control" th:value="${course.course_id}" th:text="${course.name}"></option>
-    			</select>
-   				</div>
-   				
-   			<button type="submit" class="btn btn-primary">Save</button>
-			
-			
-		</form>
+
 	</div>
 </body>
 </html>
