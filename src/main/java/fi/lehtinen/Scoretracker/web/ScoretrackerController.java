@@ -34,7 +34,7 @@ public class ScoretrackerController {
 
 
     @RequestMapping(value= {"/", "/courselist"})
-    public String studentList(Model model) {	
+    public String courseList(Model model) {	
         model.addAttribute("courses", crepository.findAll());
         return "courselist";
     }
@@ -53,7 +53,6 @@ public class ScoretrackerController {
     @RequestMapping(value = "/addgame/{id}")
     public String addGame(@PathVariable("id") Long courseId, Model model){
     	model.addAttribute("course", crepository.getOne(courseId));
-    	model.addAttribute("holes", hrepository.findByCourse(crepository.findById(courseId)));
     	model.addAttribute("game", new Game());
         return "addgame";
     }
