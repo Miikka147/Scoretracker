@@ -24,20 +24,16 @@
 				<th>Distance</th>
 				<th>Score</th>
 			</tr>
-    		<tr  th:each = "holes : ${holes}" >
+    		<tr  th:each = "holes, count : ${holes}" >
     		<td th:text=${holes.name}></td>
     		<td th:text=${holes.par}></td>
     		<td th:text=${holes.distance}></td>
-    		
+    		<td th:text=${holes.count}></td>
     		
  
         	
      </table>
 		
-		  	 <div class="form-group">
-		  		<label for="score">Score</label>
-				<input type="text" class="form-control" id="score" th:field="*{score}" />
-				</div>
 				
 				
 					<div class="form-group" style="display: none;">
