@@ -3,7 +3,7 @@ DROP TABLE game;
 DROP TABLE hole;
 
 CREATE TABLE course
-(course_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+(course_id BIGINT SERIAL NOT NULL PRIMARY KEY,
 name VARCHAR(50),
 city VARCHAR(30),
 address VARCHAR(100),
@@ -11,7 +11,7 @@ rating VARCHAR(10),
 holesqty int);
 
 CREATE TABLE game
-(id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY
+(id BIGINT NOT NULL SERIAL PRIMARY KEY
 ,score int NOT NULL,
 score1 int,
 score2 int,
@@ -34,7 +34,7 @@ score18 int,
 course_id BIGINT NOT NULL);
 
 CREATE TABLE hole (
-id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+id BIGINT NOT NULL SERIAL PRIMARY KEY,
 name VARCHAR(50),
 par int,
 distance int,
@@ -127,6 +127,3 @@ INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #16:',4,154,5);
 INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #17:',3,85,5);
 INSERT INTO hole (name, par, distance, course_id) VALUES ('Hole #18:',3,83,5);
 
-SELECT * FROM course;
-SELECT * FROM game;
-SELECT * FROM hole;
