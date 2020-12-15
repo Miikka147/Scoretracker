@@ -1,11 +1,7 @@
 package fi.lehtinen.Scoretracker.domain;
 
 import java.util.List;
-<<<<<<< HEAD
 
-=======
-import java.util.Set;
->>>>>>> cac6266c052832e31bc1bf33da392ef3d28d7525
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -13,11 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-<<<<<<< HEAD
 
-=======
-import javax.persistence.Table;
->>>>>>> cac6266c052832e31bc1bf33da392ef3d28d7525
 
 
 @Entity
