@@ -18,17 +18,7 @@
 
 		<form th:object="${game}" th:action="@{save}" action="#" method="post" style="width:300px">
 			    <table class="table table-striped" style="width:300px">
-    <tr>
-				<th></th>
-				<th>Par</th>
-				<th>Distance</th>
-				<th>Score</th>
-			</tr>
-    		<tr  th:each = "holes, iterStat : ${holes}" >
-    		<td th:text=${holes.name}></td>
-    		<td th:text=${holes.par}></td>
-    		<td th:text=${holes.distance}></td>
-    		<td><input th:id="'score' +${iterStat.count}" type="text" class="form-control" th:field="*{score__${iterStat.index+1}__}" /></td>
+
     		
  
         	
