@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -16,7 +17,7 @@
 <a th:href="@{/}" class="btn btn-primary">Back</a>
 	
 
-		<form th:object="${game}" th:action="@{gsave}" action="#" method="post" style="width:300px">
+		<form th:object="${game}" th:action="@{save}" action="#" method="post" style="width:300px">
 			    <table class="table table-striped" style="width:300px">
     <tr>
 				<th></th>
@@ -24,17 +25,20 @@
 				<th>Distance</th>
 				<th>Score</th>
 			</tr>
-    		<tr  th:each = "holes iStat: ${holes}" >
+    		<tr  th:each = "holes, iterStat : ${holes}" >
     		<td th:text=${holes.name}></td>
     		<td th:text=${holes.par}></td>
     		<td th:text=${holes.distance}></td>
-    		<td><input th:id="${iStat.count}" type="text" class="form-control" th:field="*{score__${iStat.count}__}" /></td>
+    		<td><input th:id="'score' +${iterStat.count}" type="text" class="form-control" th:field="*{score__${iterStat.index+1}__}" /></td>
     		
  
         	
      </table>
 		
-		
+		  	 <div class="form-group">
+		  		<label for="score">Score</label>
+				<input type="text" class="form-control" id="score" th:field="*{score}" />
+				</div>
 				
 				
 					<div class="form-group" style="display: none;">
