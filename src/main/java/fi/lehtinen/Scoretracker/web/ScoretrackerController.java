@@ -71,7 +71,7 @@ public class ScoretrackerController {
         crepository.save(course);
         return "redirect:/courselist";
     }
-    @RequestMapping(value ="addhole/hsave", method = RequestMethod.POST)
+    @RequestMapping(value ="addhole/save", method = RequestMethod.POST)
     public String save(Hole hole){
         hrepository.save(hole);
         return "redirect:../courselist";
