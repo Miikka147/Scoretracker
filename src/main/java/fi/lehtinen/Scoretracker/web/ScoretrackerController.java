@@ -50,13 +50,7 @@ public class ScoretrackerController {
     }
     
   
-    @RequestMapping(value = "/addgame/{id}")
-    public String addGame(@PathVariable("id") Long courseId, Model model){
-    	model.addAttribute("course", crepository.getOne(courseId));
-    	model.addAttribute("holes", hrepository.findByCourse(crepository.findById(courseId)));
-    	model.addAttribute("game", new Game());
-        return "addgame";
-    }
+
     
 
     @RequestMapping(value = "/addhole/{id}") 
@@ -65,16 +59,23 @@ public class ScoretrackerController {
     	model.addAttribute("hole", new Hole());
         return "addhole";
     }
+    @RequestMapping(value = "addhole/save", method = RequestMethod.POST)
+    public String save(Hole hole){
+        hrepository.save(hole);
+        return "redirect:../courselist";
+    }
     
     @RequestMapping(value = "csave", method = RequestMethod.POST)
     public String save(Course course){
         crepository.save(course);
         return "redirect:/courselist";
     }
-    @RequestMapping(value ="addhole/save", method = RequestMethod.POST)
-    public String save(Hole hole){
-        hrepository.save(hole);
-        return "redirect:../courselist";
+
+    @RequestMapping(value = "/addgame/{id}")
+    public String addGame(@PathVariable("id") Long courseId, Model model){
+    	model.addAttribute("course", crepository.getOne(courseId));
+    	model.addAttribute("game", new Game());
+        return "addgame";
     }
 
     
