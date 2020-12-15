@@ -7,7 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+<<<<<<< HEAD
 
+=======
+import javax.persistence.Table;
+>>>>>>> cac6266c052832e31bc1bf33da392ef3d28d7525
 
 @Entity
 public class Hole {
