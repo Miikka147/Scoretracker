@@ -15,7 +15,7 @@
 <div class="container">
 	
 	
-		<form th:object="${holes}" th:action="@{save}" action="#" method="post" style="width:300px">
+		<form th:object="${hole}" th:action="@{save}" action="#" method="post" style="width:300px">
 		  	 <div class="form-group">
 		  		<label for="name">Hole name/number</label>
 				<input type="text" class="form-control" id="name" th:field="*{name}" />
