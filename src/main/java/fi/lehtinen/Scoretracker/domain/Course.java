@@ -4,24 +4,41 @@ import java.util.List;
 
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 
 @Entity
+@Table(name = "course", schema = "public")
 public class Course {
 	
     @Id
+    @Column(name = "course_id")
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long course_id;
     
-	private String name, city, address,rating;
+    @Column(name = "name")
+	private String name;
+    
+    @Column(name = "city")
+	private String city;
+    
+    @Column(name = "address")
+	private String address;
+    
+    @Column(name = "rating")
+	private String rating;
+    
+    @Column(name = "holesqty")
 	private int holesqty;
 	
+
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
 	private List<Game> games;
 	
@@ -86,6 +103,11 @@ public String getRating() {
 }
 public void setRating(String rating) {
 	this.rating = rating;
+}
+@Override
+public String toString() {
+	return "Course [course_id=" + course_id + ", name=" + name + ", city=" + city + ", address=" + address
+			+ ", rating=" + rating + ", holesqty=" + holesqty + ", games=" + games + ", holes=" + holes + "]";
 }
 
 }
