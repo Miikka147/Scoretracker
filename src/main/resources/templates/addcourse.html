@@ -17,7 +17,6 @@
 	<a th:href="@{/}" class="btn btn-primary">Back</a></h1>
 	
 		<form th:object="${course}" th:action="@{save}" action="#" method="post" style="width:300px">
-  			<div th:text=${course.course.id}></div>
   			<div class="form-group">
     			<label for="name">Name</label>
     			<input type="text" class="form-control" id="name" th:field="*{name}" />
