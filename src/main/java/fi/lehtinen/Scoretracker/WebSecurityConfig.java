@@ -14,7 +14,7 @@ import fi.lehtinen.Scoretracker.web.UserDetailServiceImpl;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
@@ -25,23 +25,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
         
         .csrf().disable()
-		.authorizeRequests()
-		.antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
-        	.anyRequest().authenticated()
-        	.and()
-        	.httpBasic();
-        
-        /*.authorizeRequests().antMatchers("/css/**").permitAll() 
+        .authorizeRequests().antMatchers("/css/**").permitAll() 
         .and()
         .authorizeRequests()
           .anyRequest().authenticated()
           .and()
+          .authorizeRequests()
+  		.antMatchers(HttpMethod.OPTIONS,"/**").permitAll().and()
       .formLogin()
           .defaultSuccessUrl("/courselist")
           .permitAll()
           .and()
       .logout()
-          .permitAll();*/
+          .permitAll();
     }
     
     @Autowired
