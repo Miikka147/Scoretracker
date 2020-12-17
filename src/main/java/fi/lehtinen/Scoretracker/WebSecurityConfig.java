@@ -14,7 +14,7 @@ import fi.lehtinen.Scoretracker.web.UserDetailServiceImpl;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 @Configuration
-
+@EnableGlobalMethodSecurity(prePostEnabled = false)
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
