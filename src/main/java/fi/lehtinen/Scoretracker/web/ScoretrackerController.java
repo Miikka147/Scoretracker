@@ -22,7 +22,7 @@ import fi.lehtinen.Scoretracker.domain.HoleRepository;
 
 
 
-@RestController
+@Controller
 public class ScoretrackerController {
 	@Autowired
 	private CourseRepository crepository;
