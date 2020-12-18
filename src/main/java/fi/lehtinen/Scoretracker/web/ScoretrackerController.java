@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,16 +33,19 @@ public class ScoretrackerController {
 	private HoleRepository hrepository;
 
 
+	@PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @RequestMapping(value= {"/", "/courselist"})
     public String courseList(Model model) {	
         model.addAttribute("courses", crepository.findAll());
         return "courselist";
     }
+	@PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @RequestMapping(value = "/recentgames")
     public String viewRecentgames(Model model) {
     	model.addAttribute("games", grepository.findAll());
     	return "recentgames";
     }
+	@PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value= "/addcourse")
     public String addCourse(Model model) {
     	model.addAttribute("course", new Course());
@@ -52,24 +56,27 @@ public class ScoretrackerController {
 
     
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/addhole/{id}") 
     public String addHole(@PathVariable("id") Long courseId, Model model){
     	model.addAttribute("course", crepository.getOne(courseId));
     	model.addAttribute("hole", new Hole());
         return "addhole";
     }
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "addhole/save", method = RequestMethod.POST)
     public String save(Hole hole){
         hrepository.save(hole);
         return "redirect:../courselist";
     }
-    
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Course course){
         crepository.save(course);
         return "redirect:/courselist";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @RequestMapping(value = "/addgame/{id}")
     public String addGame(@PathVariable("id") Long courseId, Model model){
     	model.addAttribute("course", crepository.getOne(courseId));
@@ -77,18 +84,20 @@ public class ScoretrackerController {
         return "addgame";
     }
 
-    
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "addgame/save", method = RequestMethod.POST)
     public String save(Game game){
         grepository.save(game);
         return "redirect:../courselist";
     }    
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteHole(@PathVariable("id") Long holeId, Model model) {
     	hrepository.deleteById(holeId);
         return "redirect:../courselist";
-    }     
+    }
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @RequestMapping(value = "/view/{id}")
     public String viewCourse(@PathVariable("id") Long courseId, Model model) {
     	model.addAttribute("courses", crepository.getOne(courseId));
@@ -97,6 +106,7 @@ public class ScoretrackerController {
     	return "viewcourse";
     }   
   
+    @PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping(value = "/edit/{id}")
 	public String editHole(@PathVariable("id") Long holeId, Model model) {
 		model.addAttribute("hole", hrepository.getOne(holeId));
