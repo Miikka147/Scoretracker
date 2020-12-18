@@ -11,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 
@@ -24,18 +27,31 @@ public class Course {
     private Long course_id;
     
     @Column(name = "name")
+    @NotNull
+	@Size(min=2, message = "Liian lyhyt")
+	@Size (max=40, message = "Liian pitkä")
 	private String name;
     
     @Column(name = "city")
+    @NotNull
+   	@Size(min=2, message = "Liian lyhyt")
+   	@Size (max=40, message = "Liian pitkä")
 	private String city;
     
     @Column(name = "address")
+    @NotNull
+   	@Size(min=2, message = "Liian lyhyt")
+   	@Size (max=50, message = "Liian pitkä")
 	private String address;
     
     @Column(name = "rating")
+    @NotNull
+   	@Size(min=1, message = "Liian lyhyt")
+   	@Size (max=5, message = "Liian pitkä")
 	private String rating;
     
     @Column(name = "holesqty")
+    @Min(value=1, message = "Vähintään yksi väylä")
 	private int holesqty;
 	
 

@@ -3,11 +3,15 @@ package fi.lehtinen.Scoretracker.web;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.rest.core.event.ValidatingRepositoryEventListener;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +28,22 @@ import fi.lehtinen.Scoretracker.domain.HoleRepository;
 
 
 @Controller
+
 public class ScoretrackerController {
+	
+	@Bean
+	public Validator validator() {
+	    return new LocalValidatorFactoryBean();
+	}
+
+	public void configureValidatingRepositoryEventListener(ValidatingRepositoryEventListener validatingListener) {
+	    validatingListener.addValidator("afterCreate", (org.springframework.validation.Validator) validator());
+	    validatingListener.addValidator("beforeCreate", (org.springframework.validation.Validator) validator());
+	    validatingListener.addValidator("afterSave", (org.springframework.validation.Validator) validator());
+	    validatingListener.addValidator("beforeSave", (org.springframework.validation.Validator) validator());
+	}
+	
+	
 	@Autowired
 	private CourseRepository crepository;
 	@Autowired
@@ -51,10 +70,6 @@ public class ScoretrackerController {
     	model.addAttribute("course", new Course());
     	return "addcourse";
     }
-    
-  
-
-    
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/addhole/{id}") 
