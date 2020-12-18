@@ -51,6 +51,7 @@ public class Course {
 	private String rating;
     
     @Column(name = "holesqty")
+    @NotNull
     @Min(value=1, message = "Vähintään yksi väylä")
 	private int holesqty;
 	
